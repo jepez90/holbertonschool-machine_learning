@@ -7,9 +7,7 @@
     You must return a new numpy.ndarray
 """
 
-import numpy as np
-
 
 def np_transpose(matrix):
     """ transposes the matrix """
-    return np.transpose(matrix)
+    return matrix.transpose()

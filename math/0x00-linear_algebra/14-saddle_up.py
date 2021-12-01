@@ -11,4 +11,4 @@
 
 def np_matmul(mat1, mat2):
     """ performs matrix multiplication """
-    return mat1 @ mat2
+    return mat1[...] @ mat2[...]
