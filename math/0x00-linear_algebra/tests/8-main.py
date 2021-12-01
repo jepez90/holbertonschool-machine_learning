@@ -2,7 +2,7 @@
 
 import sys
 import os
-sys.path.append(os.path.abspath('..'))#!/usr/bin/env python3
+sys.path.append(os.path.abspath('..'))
 
 mat_mul = __import__('8-ridin_bareback').mat_mul
 

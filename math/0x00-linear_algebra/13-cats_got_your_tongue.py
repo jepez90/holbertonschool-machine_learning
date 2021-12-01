@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" 
+"""
     Function that concatenates two matrices along a specific axis:
 
     You can assume that mat1 and mat2 can be interpreted as numpy.ndarrays
@@ -14,5 +14,5 @@ import numpy as np
 
 def np_cat(mat1, mat2, axis=0):
     """ concatenates two matrices along a specific axis """
-    
+
     return np.concatenate((mat1, mat2,), axis=axis)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" 
+"""
     Function that performs matrix multiplication:
 
     You can assume that mat1 and mat2 are numpy.ndarrays

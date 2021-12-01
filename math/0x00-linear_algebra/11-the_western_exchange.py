@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" 
+"""
     Function that transposes matrix:
 
     You can assume that matrix can be interpreted as a numpy.ndarray
