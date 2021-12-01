@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+""" Function that calculates the shape of a matrix: """
+
+
 def matrix_shape(matrix):
     """ calculates the shape of a matrix: """
     if type(matrix) is list:
