@@ -7,13 +7,13 @@ def cat_matrices2D(mat1, mat2, axis=0):
 
     if axis == 0:
         # copy the first array
-        mat3 = mat1[:]
+        matriz_resultante = [row[:] for row in mat1]
 
         # add the second array
-        mat3.extend(mat2)
+        matriz_resultante.extend([row[:] for row in mat2])
 
     else:
-        mat3 = []
+        matriz_resultante = []
 
         # run trough first matrix and get each index and row
         for i, row2 in enumerate(mat2):
@@ -22,9 +22,9 @@ def cat_matrices2D(mat1, mat2, axis=0):
             new_row = mat1[i][:]
 
             # append the elements of the row from the mat2
-            new_row.extend(row2)
+            new_row.extend(row2[:])
 
             # add the new row to the new matrix
-            mat3.append(new_row)
+            matriz_resultante.append(new_row)
 
-    return mat3
+    return matriz_resultante
