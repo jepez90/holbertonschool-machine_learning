@@ -1,6 +1,5 @@
-def add_matrices2D(mat1, mat2): 
+def add_matrices2D(mat1, mat2):
     """ adds two matrices element-wise """
-
 
     if matrix_shape(mat1) != matrix_shape(mat2):
         return None
@@ -14,7 +13,7 @@ def add_matrices2D(mat1, mat2):
         new_row = [row1[j] + row2[j] for j in range(len(row1))]
         response.append(new_row)
     return response
-        
+
 
 def matrix_shape(matrix):
     """ calculates the shape of a matrix: """
