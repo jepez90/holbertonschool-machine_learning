@@ -8,7 +8,9 @@
     You can assume that mat1 and mat2 are never empty
 """
 
+import numpy as np
+
 
 def np_matmul(mat1, mat2):
     """ performs matrix multiplication """
-    return mat1[...] @ mat2[...]
+    return np.matmul(mat1, mat2)
