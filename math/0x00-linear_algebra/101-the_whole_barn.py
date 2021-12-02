@@ -8,21 +8,38 @@
     If matrices are not the same shape, return None
     You can assume that mat1 and mat2 will never be empty
 """
-import numpy as np
 
 
 def add_matrices(mat1, mat2):
     """ adds two matrices """
 
-    # convert list in nparray
-    np_mat1 = np.array(mat1)
-    np_mat2 = np.array(mat2)
-
-    if np_mat1.shape != np_mat2.shape:
+    # check if the lists can be added
+    if matrix_shape(mat1) != matrix_shape(mat2):
         return None
 
-    # adds the arrays
-    mat_sum = np_mat1 + np_mat2
+    sum_mat = []
 
-    # convert the nparray in list
-    return mat_sum.tolist()
+    # if the list contains more lists
+    if type(mat1[0]) is list:
+        # for each sublist in the current list
+        for i in range(len(mat1)):
+            # append of response of the recursive call of the function
+            sum_mat.append(add_matrices(mat1[i], mat2[i]))
+
+    # if the list contains numbers
+    else:
+
+        # add the numbers in the lists
+        for i in range(len(mat1)):
+            sum_mat.append(mat1[i] + mat2[i])
+
+    return sum_mat
+
+
+def matrix_shape(matrix):
+    """ calculates the shape of a matrix: """
+    if type(matrix) is list:
+        response = [len(matrix)]
+        response.extend(matrix_shape(matrix[0]))
+        return response
+    return []

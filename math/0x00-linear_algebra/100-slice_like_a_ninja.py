@@ -26,4 +26,4 @@ def np_slice(matrix, axes={}):
         slicer[key] = slice(*value)
 
     # apply the slicer and creates a copy o the sliced array
-    return matrix[slicer].copy()
+    return matrix[tuple(slicer)].copy()
