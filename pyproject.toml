@@ -8,10 +8,12 @@ authors = ["Jerson Perez <ing.jersonperez@gmail.com>"]
 python = ">=3.8,<3.11"
 numpy = "1.19.2"
 scipy = "^1.7.3"
+matplotlib = "3.3.4"
 
 [tool.poetry.dev-dependencies]
 pycodestyle = "^2.8.0"
 autopep8 = "^1.6.0"
+ipykernel = "^6.6.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
