@@ -12,8 +12,9 @@ Write a function def summation_i_squared(n): that calculates sum_{i=1}^{n} i^2:
 
 def summation_i_squared(n):
     """ that calculates sum_{i=1}^{n} i^2 : """
-    if n < 1:
+    if type(n) != int or n < 1:
         return None
     if n > 1:
         return summation_i_squared(n - 1) + n**2
-    return n
+    else:
+        return 1

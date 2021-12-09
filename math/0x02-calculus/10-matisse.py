@@ -1,3 +1,19 @@
+#!/usr/bin/env python3
+
+"""
+function def poly_derivative(poly): that calculates the derivative
+of a polynomial:
+
+    poly is a list of coefficients representing a polynomial
+    the index of the list represents the power of x that the coeff belongs to
+        Example: if [f(x) = x^3 + 3x +5] , poly is equal to [5, 3, 0, 1]
+    If poly is not valid, return None
+    If the derivative is 0, return [0]
+    Return a new list of coeff representing the derivative of the polynomial
+
+"""
+
+
 def poly_derivative(poly):
     # store the result
     deriv = []
