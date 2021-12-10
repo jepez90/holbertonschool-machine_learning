@@ -34,4 +34,4 @@ def poly_integral(poly, C=0):
         # add the multiplication to the result list
         integ.append((coeff)/(i+1))
 
-    return [int(i) if int(i)==i else i for i in integ]
+    return [int(i) if int(i) == i else i for i in integ]
