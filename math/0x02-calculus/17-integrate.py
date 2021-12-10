@@ -1,26 +1,24 @@
 #!/usr/bin/env python3
-
 """
-function def poly_derivative(poly): that calculates the derivative
+Write a function def poly_integral(poly, C=0): that calculates the integral
 of a polynomial:
 
     poly is a list of coefficients representing a polynomial
     the index of the list represents the power of x that the coeff belongs to
         Example: if [f(x) = x^3 + 3x +5] , poly is equal to [5, 3, 0, 1]
-    If poly is not valid, return None
-    If the derivative is 0, return [0]
-    Return a new list of coeff representing the derivative of the polynomial
+    C is an integer representing the integration constant
+    If a coefficient is a whole number, it should be represented as an integer
+    If poly or C are not valid, return None
+    Return a new list of coeff representing the integral of the polynomial
+    The returned list should be as small as possible
 
 """
 
 
-def poly_derivative(poly):
-    """ calculates the derivative of a polynomial """
+def poly_integral(poly, C=0):
+    """ calculates the integral of a polynomial """
     # store the result
-    deriv = []
-
-    # variable to check if the derivate is 0
-    add = 0
+    integ = [C]
 
     # the list must have at least one element
     if type(poly) is not list or len(poly) == 0:
@@ -34,14 +32,6 @@ def poly_derivative(poly):
             return None
 
         # add the multiplication to the result list
-        deriv.append(i*coeff)
+        integ.append((coeff)/(i+1))
 
-        # adds the absolute value of the new coheff
-        add += abs(i*coeff)
-
-    # if add is 0, the derivate is 0
-    if add == 0:
-        return [0]
-    else:
-        # slice the list removing the first element
-        return deriv[1:]
+    return [int(i) if int(i)==i else i for i in integ]
