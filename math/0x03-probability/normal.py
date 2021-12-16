@@ -78,17 +78,11 @@ class Normal:
         x is the x-value
         Returns the CDF value for x
         """
-        erf = self.erf((x-self.mean)/(self.stddev*((2)**(1/2))))
+        x = (x-self.mean)/(self.stddev*2**(1/2))
+        erf = self.erf(x)
         return (1 + erf)/2
 
     def erf(self, x):
-        idxs = range(1, 6)
-
-        exp = [2*i - 1 for i in idxs]
-        denom = [1-(2*i) if i % 2 == 0 else (2*i) - 1 for i in idxs]
-
-        f = []
-        for i in range(0, 5):
-            f.append((x**exp[i])/denom[i])
-
-        return 2*(sum(f))/((self.PI)**(1/2))
+        """ error function """
+        powers = x-((x**3)/3)+((x**5)/10)-((x**7)/42)+((x**9)/216)
+        return (2/(self.PI**(1/2))) * powers
