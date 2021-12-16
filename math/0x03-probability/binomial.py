@@ -59,7 +59,6 @@ class Binomial:
             n = sigmaSquared/((1-self.p)*self.p)
             self.n = round(n)
 
-            
             self.p = p
 
     def pmf(self, k):
