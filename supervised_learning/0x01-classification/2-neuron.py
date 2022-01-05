@@ -30,6 +30,34 @@ class Neuron:
         if nx < 1:
             raise ValueError("nx must be a positive integer")
 
-        self.W = np.random.normal(size=(1, nx))
-        self.b = 0
-        self.A = 0
+        self.__W = np.random.normal(size=(1, nx))
+        self.__b = 0
+        self.__A = 0
+
+    def forward_prop(self, X):
+        """
+        Calculates the forward propagation of the neuron
+        X is a numpy.ndarray with shape (nx, m) that contains the input data
+            nx is the number of input features to the neuron
+            m is the number of examples
+            The neuron should use a sigmoid activation function
+            Updates and Returns the private attribute __A
+        """
+        z = np.matmul(self.__W, X) + self.__b
+        self.__A = 1/(1+np.exp(-z))
+        return self.__A
+
+    @property
+    def W(self):
+        """ get the weights vector for the neuron """
+        return self.__W
+
+    @property
+    def b(self):
+        """ get the bias for the neuron"""
+        return self.__b
+
+    @property
+    def A(self):
+        """ get the activated output of the neuron (prediction). """
+        return self.__A
