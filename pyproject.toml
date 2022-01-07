@@ -6,9 +6,10 @@ authors = ["Jerson Perez <ing.jersonperez@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"
-numpy = "1.19.2"
+numpy = "1.19.3"
 scipy = "^1.7.3"
 matplotlib = "3.3.4"
+tensorflow = "2.6"
 
 [tool.poetry.dev-dependencies]
 pycodestyle = "^2.8.0"
