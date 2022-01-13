@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """ Defines a function that creates the training operation for a
 neural network in tensorflow using the RMSProp optimization algorithm
 """
