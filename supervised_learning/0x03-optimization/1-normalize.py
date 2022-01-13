@@ -17,25 +17,4 @@ def normalize(X, m, s):
     Returns: The normalized `X` matrix
     """
 
-    X -= m
-    X /= s
-
-    return X
-
-
-if __name__ == '__main__':
-    """ test """
-    normalization_constants = __import__(
-        '0-norm_constants').normalization_constants
-    np.random.seed(0)
-    a = np.random.normal(0, 2, size=(100, 1))
-    b = np.random.normal(2, 1, size=(100, 1))
-    c = np.random.normal(-3, 10, size=(100, 1))
-    X = np.concatenate((a, b, c), axis=1)
-    m, s = normalization_constants(X)
-    print(X[:10])
-    X = normalize(X, m, s)
-    print(X[:10])
-    m, s = normalization_constants(X)
-    print(m)
-    print(s)
+    return (X - m) / s
