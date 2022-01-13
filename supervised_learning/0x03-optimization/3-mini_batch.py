@@ -4,7 +4,6 @@ mini-batch gradient descent
 """
 
 import tensorflow.compat.v1 as tf
-shuffle_data = __import__('2-shuffle_data').shuffle_data
 tf.disable_eager_execution()
 
 
@@ -33,6 +32,8 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
 
     Returns: the path where the model was saved
     """
+    shuffle_data = __import__('2-shuffle_data').shuffle_data
+
     # import meta graph and restore session
     with tf.Session() as sess:
         new_saver = tf.train.import_meta_graph(load_path + ".meta")
