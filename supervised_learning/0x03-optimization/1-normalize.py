@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """ defines a function hat normalizes (standardizes) a matrix """
 
-import numpy as np
-
 
 def normalize(X, m, s):
     """ function that normalizes (standardizes) a matrix
