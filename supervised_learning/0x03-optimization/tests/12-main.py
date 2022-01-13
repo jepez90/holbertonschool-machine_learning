@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
 import tensorflow.compat.v1 as tf
-import matplotlib.pyplot as plt
 import numpy as np
 import sys
 import os
 sys.path.append(os.path.abspath('..'))
 tf.disable_eager_execution()
-create_Adam_op = __import__('10-Adam').create_Adam_op
+learning_rate_decay = __import__('12-learning_rate_decay').learning_rate_decay
 
 
 def one_hot(Y, classes):
@@ -29,26 +28,15 @@ if __name__ == '__main__':
         saver.restore(sess, '../graph.ckpt')
         x = tf.get_collection('x')[0]
         y = tf.get_collection('y')[0]
-        y_pred = tf.get_collection('y_pred')[0]
         loss = tf.get_collection('loss')[0]
-        train_op = create_Adam_op(loss, 0.001, 0.9, 0.99, 1e-8)
+        global_step = tf.Variable(0, trainable=False)
+        alpha = 0.1
+        alpha = learning_rate_decay(alpha, 1, global_step, 10)
+        train_op = tf.train.GradientDescentOptimizer(
+            alpha).minimize(loss, global_step=global_step)
         init = tf.global_variables_initializer()
         sess.run(init)
-        for i in range(1000):
-            if not (i % 100):
-                cost = sess.run(loss, feed_dict={x: X, y: Y_oh})
-                print('Cost after {} iterations: {}'.format(i, cost))
+        for i in range(100):
+            a = sess.run(alpha)
+            print(a)
             sess.run(train_op, feed_dict={x: X, y: Y_oh})
-        cost, Y_pred_oh = sess.run((loss, y_pred), feed_dict={x: X, y: Y_oh})
-        print('Cost after {} iterations: {}'.format(1000, cost))
-
-    Y_pred = np.argmax(Y_pred_oh, axis=1)
-
-    fig = plt.figure(figsize=(10, 10))
-    for i in range(100):
-        fig.add_subplot(10, 10, i + 1)
-        plt.imshow(X_3D[i])
-        plt.title(str(Y_pred[i]))
-        plt.axis('off')
-    plt.tight_layout()
-    plt.show()
