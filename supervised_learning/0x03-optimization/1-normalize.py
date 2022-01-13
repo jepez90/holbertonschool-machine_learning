@@ -21,8 +21,8 @@ def normalize(X, m, s):
     return (X - m) / s
 
 
+"""
 if __name__ == '__main__':
-    """ test """
     import numpy as np
 
     normalization_constants = __import__(
@@ -39,3 +39,4 @@ if __name__ == '__main__':
     m, s = normalization_constants(X)
     print(m)
     print(s)
+"""

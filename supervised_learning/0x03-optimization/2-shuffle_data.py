@@ -19,10 +19,7 @@ def shuffle_data(X, Y):
 
     Returns: the shuffled `X` and `Y` matrices
     """
-    new_idxs = np.random.permutation(X.shape[0])
-    X = X[new_idxs]
-    Y = Y[new_idxs]
-    return X, Y
+    return np.random.permutation(X), np.random.permutation(Y)
 
 
 if __name__ == '__main__':
