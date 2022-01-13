@@ -13,9 +13,9 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
     """ function that trains a loaded neural network model using mini-batch
     gradient descent
 
-    Args:
+    Params
     -----
-        X_train: numpy.ndarray of shape (m, 784) containing the training data
+        X_train: numpy.ndarrayof shape (m, 784) containing the training data
             m is the number of data points
             784 is the number of input features\n
         Y_train: one-hot numpy.ndarray of shape (m, 10) containing the
@@ -30,9 +30,10 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
         load_path: path from which to load the model\n
         save_path: path to where the model should be saved after training
 
-    Returns: the path where the model was saved
+    Returns
+    -------
+    the path where the model was saved
     """
-
 
     # imp meta graph and restore session
     with tf.Session() as sess:
