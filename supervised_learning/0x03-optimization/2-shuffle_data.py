@@ -9,6 +9,7 @@ def shuffle_data(X, Y):
     """ Function that shuffles the data points in two matrices the same way:
 
     Args:
+    -----
         X: first `numpy.ndarray` of shape `(m, nx)` to shuffle, where
             `m` is the number of data points and
             `nx` is the number of features in `X`.
@@ -19,7 +20,9 @@ def shuffle_data(X, Y):
     Returns: the shuffled `X` and `Y` matrices
     """
     new_idxs = np.random.permutation(X.shape[0])
-    return X[new_idxs], Y[new_idxs]
+    X = X[new_idxs]
+    Y = Y[new_idxs]
+    return X, Y
 
 
 if __name__ == '__main__':
