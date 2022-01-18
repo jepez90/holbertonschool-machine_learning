@@ -19,6 +19,6 @@ def precision(confusion):
     numpy.ndarray
         of shape (classes,) containing the precision of each class
 """
-    TP = confusion.diag()
+    TP = confusion.diagonal()
     FP = np.sum(confusion, axis=0)
     return TP / FP
