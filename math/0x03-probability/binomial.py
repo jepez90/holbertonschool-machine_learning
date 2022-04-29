@@ -24,7 +24,7 @@ class Binomial:
         If data is given:
             Calculate n and p from data
             Round n to the nearest integer (rounded, not casting!
-            The difference is important: int(3.7) is not the same as round(3.7)
+            The difference is: int(3.7) is not the same as round(3.7)
             Hint: Calculate p first and then calculate n. Then recalculate p.
             Think about why you would want to do it this way?
             If data is not a list, raise a TypeError with the message 'data
